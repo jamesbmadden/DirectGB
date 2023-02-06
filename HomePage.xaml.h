@@ -9,7 +9,7 @@ namespace winrt::DirectGB::implementation {
     int32_t MyProperty();
     void MyProperty(int32_t value);
 
-    void loadRomButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
+    Windows::Foundation::IAsyncAction loadRomButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
     void githubButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
     void OnNavigatedTo(Microsoft::UI::Xaml::Navigation::NavigationEventArgs const& e);
 

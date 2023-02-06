@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "HomePage.xaml.h"
+#include "Shobjidl.h"
 #if __has_include("HomePage.g.cpp")
 #include "HomePage.g.cpp"
 #endif
@@ -28,8 +29,17 @@ namespace winrt::DirectGB::implementation {
     throw hresult_not_implemented();
   }
 
-  void HomePage::loadRomButton_Click(IInspectable const&, RoutedEventArgs const&) {
-    // myButton().Content(box_value(L"Clicked"));
+  Windows::Foundation::IAsyncAction HomePage::loadRomButton_Click(IInspectable const&, RoutedEventArgs const&) {
+    // open up a file picker
+    auto picker = winrt::Windows::Storage::Pickers::FileOpenPicker();
+    // set the suggested start page to the documents directory
+    picker.SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId::DocumentsLibrary);
+    
+    // allow any file type to be used
+    picker.FileTypeFilter().Append(L"*");
+
+    picker.as<IInitializeWithWindow>()->Initialize(m_hWnd);
+    auto file = co_await picker.PickSingleFileAsync();
   }
 
   void HomePage::githubButton_Click(IInspectable const&, RoutedEventArgs const&) {
