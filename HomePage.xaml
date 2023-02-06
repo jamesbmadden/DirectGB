@@ -1,0 +1,39 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="DirectGB.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DirectGB"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+  <Grid>
+
+    <StackPanel Orientation="Vertical" Padding="8">
+
+      <Image Source="/Assets/directgb-icon.png" Width="150"/>
+
+      <TextBlock Text="DirectGB Emulator" FontSize="24" Margin="0,8"/>
+
+      <TextBlock Margin="0,0,0,16">DirectGB is a GameBoy emulator for Windows<LineBreak />using the Windows App SDK and DirectX 12.</TextBlock>
+    </StackPanel>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+      <Button Style="{StaticResource AccentButtonStyle}" x:Name="loadRomButton" Click="loadRomButton_Click" Margin="0,0,20,0">
+        <StackPanel Orientation="Horizontal">
+          <SymbolIcon x:Name="SaveIcon" Margin="0,0,8,0" Symbol="Save"/>
+          <TextBlock>Load ROM</TextBlock>
+        </StackPanel>
+      </Button>
+      <Button x:Name="githubButton" Click="githubButton_Click">
+        <StackPanel Orientation="Horizontal">
+          <Image Height="20" Margin="0,0,8,0" Source="{ThemeResource GithubIcon}" />
+          <TextBlock>View Code</TextBlock>
+        </StackPanel>
+      </Button>
+    </StackPanel>
+  </Grid>
+</Page>

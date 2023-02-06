@@ -1,0 +1,12 @@
+// Copyright (c) Microsoft Corporation and Contributors.
+// Licensed under the MIT License.
+
+namespace DirectGB
+{
+    [default_interface]
+    runtimeclass PlayPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        PlayPage();
+        Int32 MyProperty;
+    }
+}

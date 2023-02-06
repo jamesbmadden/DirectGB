@@ -1,0 +1,27 @@
+<Application
+  x:Class="DirectGB.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="using:DirectGB">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+        <!-- Other merged dictionaries here -->
+      </ResourceDictionary.MergedDictionaries>
+      <!-- Other app resources here -->
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="BackgroundColour" Color="Transparent"/>
+          <ImageSource x:Key="GithubIcon">/Assets/github-mark.png</ImageSource>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+          <SolidColorBrush x:Key="BackgroundColour" Color="#222222"/>
+          <ImageSource x:Key="GithubIcon">/Assets/github-mark-white.png</ImageSource>
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
