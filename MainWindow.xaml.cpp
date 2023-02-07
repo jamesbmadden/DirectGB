@@ -22,12 +22,13 @@ namespace winrt::DirectGB::implementation {
     // add the mica controller!
     SetBackground();
 
-    int dpi = 2;
+    int dip = GetDpiForWindow(m_hWnd) / 96;
 
     // set the size of the window
+    // make sure its adjusted for the dpi
     Windows::Graphics::SizeInt32 size;
-    size.Height = 448 * dpi;
-    size.Width = 300 * dpi;
+    size.Height = 448 * dip;
+    size.Width = 300 * dip;
 
     m_mainAppWindow.ResizeClient(size);
 
