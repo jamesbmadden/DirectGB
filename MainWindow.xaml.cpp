@@ -21,7 +21,7 @@ namespace winrt::DirectGB::implementation {
 
     // set the size of the window
     Windows::Graphics::SizeInt32 size;
-    size.Height = 400 * dpi;
+    size.Height = 448 * dpi;
     size.Width = 300 * dpi;
 
     m_mainAppWindow.ResizeClient(size);
@@ -29,6 +29,8 @@ namespace winrt::DirectGB::implementation {
     // disable the default titlebar and replace it
     m_mainAppWindow.TitleBar().ExtendsContentIntoTitleBar(true);
     m_mainAppWindow.TitleBar().ButtonBackgroundColor(Microsoft::UI::Colors::Transparent());
+    // use the 48px title bar instead of the default 32px one to match modern apps
+    m_mainAppWindow.TitleBar().PreferredHeightOption(Microsoft::UI::Windowing::TitleBarHeightOption::Tall);
 
     ContentFrame().Navigate(xaml_typename<winrt::DirectGB::HomePage>(), *this);
   }

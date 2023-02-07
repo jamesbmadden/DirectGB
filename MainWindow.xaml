@@ -11,11 +11,11 @@
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-      <RowDefinition Height="25"/>
+      <RowDefinition Height="48"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Border x:Name="AppTitleBar" VerticalAlignment="Top" Grid.Row="0">
-      <TextBlock x:Name="AppTitle" Text="DirectGB" VerticalAlignment="Top" Margin="8,8,0,0" />
+    <Border x:Name="AppTitleBar" VerticalAlignment="Top" Grid.Row="0" Height="48">
+      <TextBlock x:Name="AppTitle" Text="DirectGB" VerticalAlignment="Center" Margin="16,0,0,0" />
     </Border>
     <Frame x:Name="ContentFrame"  Grid.Row="1" />
   </Grid>
