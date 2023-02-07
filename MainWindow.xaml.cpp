@@ -38,6 +38,11 @@ namespace winrt::DirectGB::implementation {
     m_mainAppWindow.TitleBar().ButtonInactiveBackgroundColor(Microsoft::UI::Colors::Transparent());
     // use the 48px title bar instead of the default 32px one to match modern apps
     m_mainAppWindow.TitleBar().PreferredHeightOption(Microsoft::UI::Windowing::TitleBarHeightOption::Tall);
+    // disable resizing
+    Microsoft::UI::Windowing::OverlappedPresenter presenter = Microsoft::UI::Windowing::OverlappedPresenter::Create();
+    presenter.IsResizable(false);
+    presenter.IsMaximizable(false);
+    m_mainAppWindow.SetPresenter(presenter);
 
     ContentFrame().Navigate(xaml_typename<winrt::DirectGB::HomePage>(), *this);
   }
@@ -53,6 +58,9 @@ namespace winrt::DirectGB::implementation {
   // change to the play page
   void MainWindow::ToPlayPage() {
     ContentFrame().Navigate(xaml_typename<winrt::DirectGB::PlayPage>(), *this);
+    // enable resizing on this page
+    Microsoft::UI::Windowing::OverlappedPresenter presenter = Microsoft::UI::Windowing::OverlappedPresenter::Create();
+    m_mainAppWindow.SetPresenter(presenter);
   }
 
   // apply a mica background
