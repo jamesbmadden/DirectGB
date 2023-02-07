@@ -8,6 +8,8 @@
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 using namespace Microsoft::UI::Xaml::Controls;
+using namespace Microsoft::UI::Composition;
+using namespace Microsoft::UI::Composition::SystemBackdrops;
 
 namespace winrt::DirectGB::implementation {
   MainWindow::MainWindow() {
@@ -16,6 +18,9 @@ namespace winrt::DirectGB::implementation {
     this->Title(L"DirectGB");
 
     m_mainAppWindow = GetAppWindowForCurrentWindow();
+
+    // add the mica controller!
+    SetBackground();
 
     int dpi = 2;
 
@@ -29,6 +34,7 @@ namespace winrt::DirectGB::implementation {
     // disable the default titlebar and replace it
     m_mainAppWindow.TitleBar().ExtendsContentIntoTitleBar(true);
     m_mainAppWindow.TitleBar().ButtonBackgroundColor(Microsoft::UI::Colors::Transparent());
+    m_mainAppWindow.TitleBar().ButtonInactiveBackgroundColor(Microsoft::UI::Colors::Transparent());
     // use the 48px title bar instead of the default 32px one to match modern apps
     m_mainAppWindow.TitleBar().PreferredHeightOption(Microsoft::UI::Windowing::TitleBarHeightOption::Tall);
 
@@ -46,6 +52,41 @@ namespace winrt::DirectGB::implementation {
   // change to the play page
   void MainWindow::ToPlayPage() {
     ContentFrame().Navigate(xaml_typename<winrt::DirectGB::PlayPage>(), *this);
+  }
+
+  // apply a mica background
+  void MainWindow::SetBackground() {
+
+    // only if mica is supported
+    if (MicaController::IsSupported()) {
+
+      // make sure we have a Dispatcher Queue
+      EnsureDispatcher();
+
+      m_backdropController = MicaController();
+      SystemBackdropConfiguration config = SystemBackdropConfiguration();
+      // set this window as the target for the controller
+      m_backdropController.SetSystemBackdropConfiguration(config);
+      m_backdropController.AddSystemBackdropTarget(this->try_as<ICompositionSupportsSystemBackdrop>());
+
+    }
+
+  }
+
+  void MainWindow::EnsureDispatcher() {
+
+    // if there already is one, we're good
+    if (nullptr != winrt::Windows::System::DispatcherQueue::GetForCurrentThread() || nullptr != m_dispatcherQueueController) {
+      return;
+    }
+
+    // otherwise, make one!
+    DispatcherQueueOptions options { sizeof(DispatcherQueueOptions), DQTYPE_THREAD_CURRENT, DQTAT_COM_NONE };
+
+    ::ABI::Windows::System::IDispatcherQueueController* ptr{ nullptr };
+    winrt::check_hresult(CreateDispatcherQueueController(options, &ptr));
+    m_dispatcherQueueController = { ptr, take_ownership_from_abi };
+
   }
 
   winrt::Microsoft::UI::Windowing::AppWindow MainWindow::GetAppWindowForCurrentWindow() {
