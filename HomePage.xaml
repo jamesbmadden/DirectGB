@@ -14,7 +14,7 @@
 
     <StackPanel Orientation="Vertical" Padding="8">
 
-      <Image Source="/Assets/directgb-icon.png" Width="150"/>
+      <Image Source="/Assets/directgb-icon-fluent.png" Width="150"/>
 
       <TextBlock Text="DirectGB Emulator" FontSize="24" Margin="0,8"/>
 

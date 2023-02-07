@@ -177,7 +177,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\directgb-icon.png" />
+    <Image Include="Assets\directgb-icon-fluent.png" />
     <Image Include="Assets\github-mark-white.png" />
     <Image Include="Assets\github-mark.png" />
     <Image Include="Assets\LargeTile.scale-100.png" />
