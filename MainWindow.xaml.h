@@ -8,6 +8,7 @@ namespace winrt::DirectGB::implementation {
 
     int32_t MyProperty();
     void MyProperty(int32_t value);
+    void ToPlayPage();
 
     private:
       winrt::Microsoft::UI::Windowing::AppWindow GetAppWindowForCurrentWindow();

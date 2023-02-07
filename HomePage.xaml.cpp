@@ -16,6 +16,7 @@ namespace winrt::DirectGB::implementation {
 
   void HomePage::OnNavigatedTo(Microsoft::UI::Xaml::Navigation::NavigationEventArgs const& e) {
     Window window = e.Parameter().as<Window>();
+    m_window = window;
     winrt::com_ptr<IWindowNative> windowNative = window.as<IWindowNative>();
 
     //Get the HWND for the XAML Window
@@ -41,6 +42,10 @@ namespace winrt::DirectGB::implementation {
 
     picker.as<IInitializeWithWindow>()->Initialize(m_hWnd);
     auto file = co_await picker.PickSingleFileAsync();
+
+    // now go to the play page
+    MainWindow mainWindow = m_window.as<MainWindow>();
+    mainWindow.ToPlayPage();
   }
 
   void HomePage::githubButton_Click(IInspectable const&, RoutedEventArgs const&) {

@@ -41,6 +41,11 @@ namespace winrt::DirectGB::implementation {
     throw hresult_not_implemented();
   }
 
+  // change to the play page
+  void MainWindow::ToPlayPage() {
+    ContentFrame().Navigate(xaml_typename<winrt::DirectGB::PlayPage>(), *this);
+  }
+
   winrt::Microsoft::UI::Windowing::AppWindow MainWindow::GetAppWindowForCurrentWindow() {
     // Get access to IWindowNative
     winrt::DirectGB::MainWindow thisWindow = *this;

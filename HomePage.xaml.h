@@ -15,6 +15,7 @@ namespace winrt::DirectGB::implementation {
 
     private:
       HWND m_hWnd;
+      Microsoft::UI::Xaml::Window m_window;
   };
 }
 
