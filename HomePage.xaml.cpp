@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "HomePage.xaml.h"
+#include <stdlib.h>
 #include "Shobjidl.h"
 #if __has_include("HomePage.g.cpp")
 #include "HomePage.g.cpp"
@@ -44,7 +45,8 @@ namespace winrt::DirectGB::implementation {
 
   void HomePage::githubButton_Click(IInspectable const&, RoutedEventArgs const&) {
       
-    
+    // open up the browser to the GitHub page
+    system("start https://github.com/jamesbmadden/DirectGB");
 
   }
 }
