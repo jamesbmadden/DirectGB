@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "MainWindow.xaml.h"
+#include "Render.cpp"
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #include <winrt/Microsoft.UI.Interop.h>
@@ -15,7 +16,7 @@ namespace winrt::DirectGB::implementation {
   MainWindow::MainWindow() {
     InitializeComponent();
 
-    this->Title(L"DirectGB");
+    this->Title(Render::getTitle());
 
     m_mainAppWindow = GetAppWindowForCurrentWindow();
 

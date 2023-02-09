@@ -19,9 +19,15 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Render.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Render.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -193,6 +199,9 @@
     </Filter>
     <Filter Include="Pages">
       <UniqueIdentifier>{fe5162ca-21cc-4b74-bd33-0f626aef3257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX">
+      <UniqueIdentifier>{f221c768-6435-41fa-a42b-0e166f6746cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

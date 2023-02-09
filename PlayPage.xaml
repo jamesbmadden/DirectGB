@@ -10,5 +10,5 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
 
-  <SwapChainPanel></SwapChainPanel>
+  <SwapChainPanel x:Name="RenderPanel"></SwapChainPanel>
 </Page>

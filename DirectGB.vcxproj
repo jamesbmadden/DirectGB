@@ -122,6 +122,7 @@
       <DependentUpon>PlayPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Render.h" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -152,6 +153,7 @@
       <DependentUpon>PlayPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl">
